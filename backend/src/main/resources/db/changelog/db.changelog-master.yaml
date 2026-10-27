@@ -1,0 +1,109 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-users-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/001-create-users-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 002-alter-user-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/002-alter-users-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 003-create-audit-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/003-create-audit-events-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 004-create-conversations-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/004-create-conversations-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 005-create-messages-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/005-create-messages-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 006-index-conversation-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/006-index-conversation-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 007-create-message-receipts-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/007-create-message-receipts-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 008-create-user-blocks-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/008-create-user-blocks-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 009-create-outbox-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/009-create-outbox-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 010-create-device-registration-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/010-create-device-registration-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 011-alter-conversation-member-add-muted-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/011-alter-conversation-member-add-muted-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
+  - changeSet:
+      id: 012-alter-conversation-member-add-hidden-after-sequence-schema
+      author: me
+      changes:
+        - sqlFile:
+            path: db/changelog/012-alter-conversation-member-add-hidden-after-sequence-schema.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            stripComments: true
