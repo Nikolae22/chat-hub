@@ -1,0 +1,60 @@
+networks:
+  chathub-network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: chathub-postgress
+    environment:
+      POSTGRES_DB: chathub
+      POSTGRES_USER: chathub
+      POSTGRES_PASSWORD: chathub
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chathub -d chathub"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      chathub-network:
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: chathub-pgadmin
+    environment:
+      PGADMIN_FEFAULT_EMAIL: we@gmail.com
+      PGADMIN_FEFAULT_password: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - chathub-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: chathub-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server","--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - chathub-network
+
+
+
+volumes:
+  postgres_data:
+#  redis_data
+#  pgadmin_data:
